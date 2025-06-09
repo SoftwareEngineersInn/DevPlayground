@@ -1,4 +1,4 @@
-package com.practice.java.users_api;
+package com.practice.java.users.api;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
