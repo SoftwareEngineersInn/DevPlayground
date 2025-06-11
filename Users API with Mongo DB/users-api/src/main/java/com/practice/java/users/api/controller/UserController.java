@@ -32,7 +32,7 @@ public class UserController {
         return userRepository.save(user);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<User> updateUser(@PathVariable String id, @RequestBody User userToUpdate) {
         return userRepository.findById(id)
                 .map(user -> {
