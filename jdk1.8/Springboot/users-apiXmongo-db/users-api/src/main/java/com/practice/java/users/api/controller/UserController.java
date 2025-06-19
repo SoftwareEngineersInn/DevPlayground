@@ -1,5 +1,6 @@
 package com.practice.java.users.api.controller;
 
+import com.practice.java.users.api.dto.UserDto;
 import com.practice.java.users.api.model.User;
 import com.practice.java.users.api.respository.UserRepository;
 import io.swagger.v3.oas.annotations.Operation;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,19 +36,24 @@ public class UserController {
 
     @PostMapping
     @Operation(summary = "Create new user")
-    public User createUser(@RequestBody User user){
-        return userRepository.save(user);
+    public User createUser(@RequestBody @Valid UserDto payload){
+        User newUser = new User();
+        newUser.setName(payload.getName());
+        newUser.setEmail(payload.getEmail());
+        newUser.setAge(payload.getAge());
+        newUser.setActive(payload.isActive());
+        return userRepository.save(newUser);
     }
 
     @PutMapping("/{id}")
     @Operation(summary = "Update an existent user")
-    public ResponseEntity<User> updateUser(@PathVariable String id, @RequestBody User userToUpdate) {
+    public ResponseEntity<User> updateUser(@PathVariable String id, @RequestBody @Valid UserDto payload) {
         return userRepository.findById(id)
                 .map(user -> {
-                    user.setName(userToUpdate.getName());
-                    user.setEmail(userToUpdate.getEmail());
-                    user.setAge(userToUpdate.getAge());
-                    user.setActive(userToUpdate.isActive());
+                    user.setName(payload.getName());
+                    user.setEmail(payload.getEmail());
+                    user.setAge(payload.getAge());
+                    user.setActive(payload.isActive());
                     User userUpdated = userRepository.save(user);
                     return ResponseEntity.ok(userUpdated);
                 })
