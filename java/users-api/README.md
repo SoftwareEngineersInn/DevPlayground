@@ -1,5 +1,12 @@
 # This is simple Spring Boot API using jdk 1.8
 
+## TechStack
+- jdk 1.8
+- Spring Boot
+- Docker
+- MongoDB
+- Lombok
+
 ## Checklist for this practice
 
 - [x] Run API locally
