@@ -2,7 +2,7 @@
 
 ## TechStack
 - jdk 1.8
-- Springboot
+- Spring Boot
 - Docker
 - MongoDB
 - Lombok
