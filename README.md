@@ -1,5 +1,26 @@
 # DevPlayground
 Personal Repository for Technological Skills Improvement
-- Spring Boot
-- Mongo DB
-- Mulesoft
+- Design Principles
+    - DRY (Don't repeat yourself)
+    - KISS (Keep it short & simple)
+    - SOLID
+        - SRP
+        - OCP
+        - LSP
+        - ISP
+        - DIP
+    - YAGNI (You Aren’t Gonna Need It)
+    - Patterns
+        - builder
+        - factory
+        - observer
+        - singleton
+        - strategy
+- Java
+    - API example with MongoDB and docker
+    - collections
+    - execption-handling
+    - functional-programming
+    - multi-threading
+    - spring-framework
+    - unit-testing
