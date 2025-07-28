@@ -12,7 +12,7 @@ ostrich.fly(); // ¡Error lógico!
 ```
 
 #### 🟢 Bueno: Replantear jerarquía:
-- Crear una interfaz `FlyingBird extends Bird`
+- Crear una interfaz `FlyingBird extends Bird` **Ambas deben ser interfaces**
 - Solo las aves que vuelan la implementan.
 
 📌 **Aplicación importante:** Evita bugs cuando usas herencia inapropiadamente.
