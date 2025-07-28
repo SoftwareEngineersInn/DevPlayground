@@ -24,3 +24,7 @@ public class Duck implements Bird, FlyingBird, SwimmingBird {
         //TODO
     }
 }
+/**
+ * Cada clase solo implementa las interfaces que necesita → ISP
+ * Ninguna subclase rompe el contrato de su supertipo → LSP
+ * **/
