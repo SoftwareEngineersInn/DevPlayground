@@ -1,7 +1,7 @@
 package org.software.engineers.inn.solid.ok.service.wrong;
 
-import ok.InvoiceCalculator;
-import ok.InvoicePrinter;
+import org.software.engineers.inn.solid.ok.InvoiceCalculator;
+import org.software.engineers.inn.solid.ok.InvoicePrinter;
 
 /**
  * 🚫 Example of a bad practice regarding SRP and how to instance every class using several direct class instances

@@ -1,7 +1,7 @@
 package org.software.engineers.inn.solid.ok.service.ok;
 
-import ok.InvoiceCalculator;
-import ok.InvoicePrinter;
+import org.software.engineers.inn.solid.ok.InvoiceCalculator;
+import org.software.engineers.inn.solid.ok.InvoicePrinter;
 
 /**
  * ✅ Example of a good practice regarding SRP and how to apply dependency injection
