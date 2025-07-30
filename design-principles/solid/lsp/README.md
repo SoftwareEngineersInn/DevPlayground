@@ -6,7 +6,7 @@
 Clase base `Bird` con método `fly()`. Subclase `Ostrich` no vuela.
 
 #### 🔴 Malo:
-```
+```java
 Bird ostrich = new Ostrich();
 ostrich.fly(); // ¡Error lógico!
 ```
@@ -23,7 +23,7 @@ ostrich.fly(); // ¡Error lógico!
    un método existente. Si te equivocas en el nombre, la firma o el tipo de retorno, el compilador te dará error.
      
 🔍 Ejemplo sin `@Override` (pasa desapercibido):
-```
+```java
 public class Duck implements Bird {
     public void eattt() { // ¡Error tipográfico!
         System.out.println("Eating");
@@ -34,7 +34,7 @@ Esto compila, pero no implementa realmente el método `eat()`
 de la interfaz, y no te darás cuenta hasta que el programa falle o se comporte raro.
 
 🔐 Ejemplo con `@Override`:
-```
+```java
 public class Duck implements Bird {
     @Override
     public void eattt() { // Error de compilación
