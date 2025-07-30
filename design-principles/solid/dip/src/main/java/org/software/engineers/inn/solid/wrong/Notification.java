@@ -13,5 +13,5 @@ public class Notification {
 }
 /**
  * In this example, the Notification class is tightly coupled to EmailService,
- * which violates the dependency inversion principle.
+ * which violates the dependency inversion principle (DIP).
  * **/
