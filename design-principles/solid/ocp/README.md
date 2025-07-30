@@ -5,7 +5,7 @@
 #### Ejemplo:
 Tienes una clase `ShapeAreaCalculator` que calcula el área de figuras geométricas con un `if` gigante:
 
-```
+```java
 if (shape instanceof Circle) { ... }
 else if (shape instanceof Square) { ... }
 ```
@@ -13,7 +13,7 @@ else if (shape instanceof Square) { ... }
 #### 🔴 Malo: Cada vez que agregas una figura nueva, tienes que modificar la clase.
 #### 🟢 Bueno: Usa polimorfismo
 
-```
+```java
 interface Shape {
     double area();
 }
@@ -38,7 +38,7 @@ class Circle implements Shape {
 Estás abriendo un archivo `.java`, tocando métodos, cambiando lógica, corriendo el riesgo de romper lo que ya funcionaba.
 
 #### 🔴 Ejemplo (violación de OCP):
-```
+```java
 public double calculateDiscount(Customer customer) {
     if (customer.getType().equals("PREMIUM")) {
         return 0.20;
@@ -54,7 +54,7 @@ public double calculateDiscount(Customer customer) {
 #### 🧩 Extender código = Agregar nuevo comportamiento sin tocar el código existente
 Usas mecanismos como herencia, interfaces, composición, delegación, configuración externa, etc.
 
-```
+```java
 public interface DiscountPolicy {
     double getDiscount(Customer customer);
 }
