@@ -14,4 +14,5 @@ Esto ayuda a que el código sea más desacoplado, flexible y fácil de mantener 
 sin modificar `Notification`.
 - **Facilidad para testear:** Puedes usar mocks fácilmente en pruebas unitarias.
 
-
+**DIP** 
+enseña que las clases deben depender de interfaces o clases abstractas (es decir, abstracciones) en lugar de clases concretas, para evitar acoplamiento rígido, facilitar cambios y permitir pruebas aisladas.
