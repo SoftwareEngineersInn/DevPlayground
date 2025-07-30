@@ -11,7 +11,7 @@ Esto ayuda a que el código sea más desacoplado, flexible y fácil de mantener 
 ### 🚀 Beneficios al aplicar DIP
 - **Desacoplamiento:** `Notification` no depende directamente de `EmailService`.
 - **Flexibilidad:** Puedes cambiar `EmailService` por otra clase (`SmsService`, `PushNotificationService`, etc.) 
-- sin modificar `Notification`.
+sin modificar `Notification`.
 - **Facilidad para testear:** Puedes usar mocks fácilmente en pruebas unitarias.
 
 
