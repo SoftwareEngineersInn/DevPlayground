@@ -1,6 +1,6 @@
 # DevPlayground
 
-## Design Principles:
+## Design Principles
 - DRY (Don't repeat yourself)
 - KISS (Keep it short & simple)
 - SOLID
@@ -14,7 +14,7 @@
     - singleton
     - strategy
 
-## Java:
+## Java
 - API example with MongoDB and docker
 - collections
 - execption-handling
