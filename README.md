@@ -1,26 +1,24 @@
 # DevPlayground
-Personal Repository for Technological Skills Improvement
-- Design Principles
-    - DRY (Don't repeat yourself)
-    - KISS (Keep it short & simple)
-    - SOLID
-        - SRP
-        - OCP
-        - LSP
-        - ISP
-        - DIP
-    - YAGNI (You Aren’t Gonna Need It)
-    - Patterns
-        - builder
-        - factory
-        - observer
-        - singleton
-        - strategy
-- Java
-    - API example with MongoDB and docker
-    - collections
-    - execption-handling
-    - functional-programming
-    - multi-threading
-    - spring-framework
-    - unit-testing
+
+## Design Principles:
+- DRY (Don't repeat yourself)
+- KISS (Keep it short & simple)
+- SOLID
+- YAGNI (You Aren’t Gonna Need It)
+- MSP
+- DBCP
+- Design Patterns
+    - builder
+    - factory
+    - observer
+    - singleton
+    - strategy
+
+## Java:
+- API example with MongoDB and docker
+- collections
+- execption-handling
+- functional-programming
+- multi-threading
+- spring-framework
+- unit-testing
