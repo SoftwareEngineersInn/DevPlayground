@@ -7,12 +7,13 @@
 - YAGNI (You Aren’t Gonna Need It)
 - MSP
 - DBCP
-- Design Patterns
-    - builder
-    - factory
-    - observer
-    - singleton
-    - strategy
+
+# Design Patterns
+- builder
+- factory
+- observer
+- singleton
+- strategy
 
 ## Java
 - API example with MongoDB and docker
