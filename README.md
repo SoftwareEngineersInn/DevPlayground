@@ -5,10 +5,10 @@
 - KISS (Keep it short & simple)
 - SOLID
 - YAGNI (You Aren’t Gonna Need It)
-- MSP
-- DBCP
+- LSP (Least Surprise Principle)
+- DBCP (Design By Contract Principle)
 
-# Design Patterns
+## Design Patterns
 - builder
 - factory
 - observer
