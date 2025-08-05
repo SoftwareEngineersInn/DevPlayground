@@ -22,38 +22,7 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
-users-api/mvnw.cmd
-users-api/.mvn/wrapper/maven-wrapper.properties
-users-api/.gitattributes
-users-api/mvnw
-Users API with Mongo DB/users-api/mvnw.cmd
-Users API with Mongo DB/users-api/mvnw
-Users API with Mongo DB/users-api/.mvn/wrapper/maven-wrapper.properties
-Users API with Mongo DB/users-api/.gitattributes
-S.O.L.I.D. Principles/OCP/ocp/.idea/misc.xml
-S.O.L.I.D. Principles/OCP/ocp/.idea/modules.xml
-S.O.L.I.D. Principles/OCP/ocp/.idea/vcs.xml
-S.O.L.I.D. Principles/OCP/ocp/ocp.iml
-design-principles/solid/OCP/ocp/.idea/modules.xml
-design-principles/solid/OCP/ocp/.idea/vcs.xml
-design-principles/solid/OCP/ocp/.idea/ocp.iml
-design-principles/solid/ocp/.idea/misc.xml
-design-principles/solid/ocp/.idea/modules.xml
-design-principles/solid/ocp/.idea/OCP.iml
-design-principles/solid/ocp/.idea/vcs.xml
-design-principles/solid/srp/srp.iml
-design-principles/solid/srp/.idea/misc.xml
-design-principles/solid/srp/.idea/modules.xml
-design-principles/solid/srp/.idea/vcs.xml
-design-principles/solid/.idea/misc.xml
-design-principles/solid/.idea/modules.xml
-design-principles/solid/.idea/solid.iml
-design-principles/solid/.idea/vcs.xml
-design-principles/solid/lsp/.idea/misc.xml
-design-principles/solid/lsp/.idea/modules.xml
-design-principles/solid/lsp/.idea/vcs.xml
-design-principles/solid/lsp/lsp.iml
-design-principles/solid/isp/.idea/misc.xml
-design-principles/solid/isp/.idea/modules.xml
-design-principles/solid/isp/.idea/vcs.xml
-design-principles/solid/isp/isp.iml
+
+# Global exclusions Intellij
+**/.idea/
+**/.mvn/
