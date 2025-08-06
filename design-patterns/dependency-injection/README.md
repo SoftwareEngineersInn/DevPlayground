@@ -104,3 +104,7 @@ podrías omitir la interfaz. Pero a medida que el sistema crece, el **costo de n
 > ***"Programa contra interfaces, no contra implementaciones."***
 >
 Esto da libertad a tu sistema para **crecer sin romper lo ya construido.**
+
+#### Dato nerdy
+
+**Dependency Injection no es un patrón creacional formal del GoF**, pero **sí está relacionado con el concepto de creación de objetos**, en el sentido de que **delegas la creación y provisión de dependencias** a otro componente. Por eso, muchos lo clasifican de forma práctica como un patrón creacional o al menos como una **técnica asociada a la creación**.
