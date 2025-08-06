@@ -1,5 +1,7 @@
 # DevPlayground
 
+> OK/Wrong Examples are contained in the `src` folder of each folder
+
 ## Design Principles
 - DRY (Don't repeat yourself)
 - KISS (Keep it short & simple)
@@ -9,6 +11,7 @@
 - DBCP (Design By Contract Principle)
 
 ## Design Patterns
+- dependency-injection
 - builder
 - factory
 - observer
