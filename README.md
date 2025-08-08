@@ -1,6 +1,6 @@
 # DevPlayground
 
-> OK/Wrong Examples are contained in the `src` folder of each folder
+> **OK/Wrong** Examples are contained in the `src` folder of each folder
 
 ## Design Principles
 - DRY (Don't repeat yourself)

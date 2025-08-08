@@ -19,7 +19,7 @@ directamente en un campo (en el caso de frameworks como Spring).
 - Mejora la legibilidad y mantenibilidad.
 - Permite cambiar fácilmente la implementación de las dependencias.
 
-> ejemplos ok/wrong pueden ser encontrados dentro de la carpeta `src`
+> Ejemplos **ok/wrong** pueden ser encontrados dentro de la carpeta `src`
 
 ### Dudas comunes
 
@@ -102,9 +102,23 @@ podrías omitir la interfaz. Pero a medida que el sistema crece, el **costo de n
 
 #### **🧠 Frase útil para recordar**
 > ***"Programa contra interfaces, no contra implementaciones."***
->
+
 Esto da libertad a tu sistema para **crecer sin romper lo ya construido.**
 
 #### Dato nerdy
 
 **Dependency Injection no es un patrón creacional formal del GoF**, pero **sí está relacionado con el concepto de creación de objetos**, en el sentido de que **delegas la creación y provisión de dependencias** a otro componente. Por eso, muchos lo clasifican de forma práctica como un patrón creacional o al menos como una **técnica asociada a la creación**.
+
+#### 📦 Ejemplo en Java con Spring
+
+```java
+@Component
+public class Car {
+    private final Engine engine;
+
+    @Autowired
+    public Car(Engine engine) {
+        this.engine = engine;  // Inyectado por Spring, no creado por Car
+    }
+}
+```
