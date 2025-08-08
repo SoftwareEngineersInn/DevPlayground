@@ -12,11 +12,26 @@
 
 ## Design Patterns
 - dependency-injection
-- builder
-- factory
-- observer
-- singleton
-- strategy
+- behavioral
+    - command
+    - iterator
+    - mediator
+    - observer
+    - state
+    - strategy
+- creational
+    - abstract-factory
+    - builder
+    - factory-method
+    - prototype
+    - singleton
+- structural
+    - adapter
+    - brigde
+    - composite
+    - decorator
+    - fecade
+    - proxy
 
 ## Java
 - API example with MongoDB and docker
