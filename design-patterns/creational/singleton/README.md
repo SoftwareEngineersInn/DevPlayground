@@ -94,9 +94,9 @@ buena práctica preferir la inyección por constructor sin `@Autowired` explíci
 - Evita inyección por campo (`@Autowired` directamente sobre atributos) porque dificulta pruebas y viola el principio de inmutabilidad.
 
 ### 💡 Resumen
-| **Forma**                                       | **¿Recomendada?** | **Comentario**                                |
-|:------------------------------------------------|-------------------|-----------------------------------------------|
-| Inyección por constructor con `@Autowired`      | ✅                 | Bien, pero algo más verbosa                   |
-| Inyección por constructor sin `@Autowired`      | ✅✅                | ✅ Mejor práctica si solo hay un constructor   |
-| Inyección por campo (`@Autowired` en atributos) | ⚠️                | No recomendado para clases complejas o testeo |
-| Inyección por setter                            | ⛔                 | Poco usada; útil solo en casos opcionales     |
+| **Forma** | **¿Recomendada?** | **Comentario** |
+| :--- | --- | --- |
+| Inyección por constructor con `@Autowired` | ✅ | Bien, pero algo más verbosa |
+| Inyección por constructor sin `@Autowired` | ✅✅ | ✅ Mejor práctica si solo hay un constructor |
+| Inyección por campo (`@Autowired` en atributos) | ⚠️ | No recomendado para clases complejas o testeo |
+| Inyección por setter | ⛔ | Poco usada; útil solo en casos opcionales |
