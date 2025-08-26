@@ -20,5 +20,5 @@ public class NotificationService {
  * Problems here:
  * - This service is coupled to EmailNotification and SmsNotification classes
  * - If I add PushNotification tomorrow, I will need to modify this method
- * - Bad adherence to OCP and SRP (Open to modification and the service has more than one reason to change
+ * - Bad adherence to OCP and SRP (Open to modification and the service has more than one reason to change)
  * **/
