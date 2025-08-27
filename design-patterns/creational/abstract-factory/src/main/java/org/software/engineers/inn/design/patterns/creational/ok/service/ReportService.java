@@ -31,7 +31,7 @@ public class ReportService {
 }
 /**
  * Spring boot advantages
- * - El @Qualifier allows to easily  change the injected family according to the context (profile, config, environment).
+ * - The @Qualifier allows to easily  change the injected family according to the context (profile, config, environment).
  * - There are no if/else with concrete classes.
  * - Easy to add new families without touching the Service code.
  * **/

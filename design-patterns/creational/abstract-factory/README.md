@@ -24,3 +24,5 @@ Ejemplo sencillo fuera de código:
 - **Coherencia**: Todos los objetos creados son de la misma “familia”.
 - **Facilidad para cambiar familias**: Basta con cambiar la fábrica que se inyecta.
 - **Cumple SRP y OCP**: Separas la creación de objetos de su uso, y puedes añadir nuevas familias sin modificar el código cliente.
+
+> Ejemplos **ok/wrong** pueden ser encontrados dentro de la carpeta `src`
