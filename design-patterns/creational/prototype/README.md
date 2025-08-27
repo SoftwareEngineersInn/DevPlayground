@@ -18,3 +18,11 @@ El patrón surge principalmente para:
 - ✔️ Simplifica la creación de objetos en **árboles jerárquicos o estructuras complejas**.
 
 > Ejemplos **ok/wrong** pueden ser encontrados dentro de la carpeta `src`
+
+### 📌 ¿Qué problema corrige?
+- **Sin Prototype:** cada nuevo `Report` tardaba 2 segundos en inicializarse
+- **Con Prototype:** solo el primero tarda 2 segundos, y todos los demás se clonan en milisegundos.
+- Además, evitamos **acoplarnos** a `new Report()` **en cada lugar del código**, usando un servicio centralizado que gestiona el prototipo.
+
+### 👉 Conclusión:
+El patrón **Prototype** es ideal cuando necesitamos **crear muchos objetos similares, costosos de instanciar, y queremos clonar un "molde" preconfigurado** en vez de repetir la construcción.

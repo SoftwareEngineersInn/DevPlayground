@@ -30,8 +30,6 @@ public class Report implements Cloneable {
     }
 
     // setters and getters
-
-
     public String getTitle() {
         return title;
     }
