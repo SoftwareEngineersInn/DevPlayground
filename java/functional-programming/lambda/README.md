@@ -127,4 +127,11 @@ El mundo ya se estaba moviendo hacia el **paradigma funcional** (Scala, Kotlin, 
 5. **Facilitan programación reactiva** → útil en frameworks como Spring WebFlux.
 
 > [!IMPORTANT]
-> Ejemplos Imperativo vs Programacion Funcinal y Lambdas pueden ser encotrados en el folder `src` 
+> Ejemplos Imperativo vs Programación Funcional y Lambdas pueden ser encontrados en el folder `src` 
+
+### ¿Cómo detectar oportunidades para usar lambdas?
+Generalmente cuando encuentres:
+1. **Clases anónimas verbosas** → como `new Comparator<>() { ... }`.
+2. **Bucles que filtran, transforman o recolectan datos** → pueden migrarse a `stream().filter().map().collect()`.
+3. **Callbacks en Spring** → por ejemplo, en `JdbcTemplate`, `RestTemplate`, `@Async` o `@Scheduled`.
+4. **Operaciones que describen un “qué hacer” más que un “cómo hacerlo”**.
