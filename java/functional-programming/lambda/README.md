@@ -1,4 +1,4 @@
-### 🔹 ¿Qué son las lambdas en Java? `(parametros) -> { cuerpo de la lógica}`
+### 🔹 ¿Qué son las lambdas en Java? `(parametros) -> { cuerpo de la lógica }`
 Una **lambda expression** es básicamente una función anónima (sin nombre) que puedes pasar como argumento o almacenar en 
 una variable.
 

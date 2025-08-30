@@ -1,9 +1,10 @@
-package org.software.engineers.inn.functional.programming.lambdas;
+package org.software.engineers.inn.functional.programming.functional;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/** Example1 migrated to functional using lambda **/
 public class Example1 {
 
     public void ExtractNamesWithL() {
