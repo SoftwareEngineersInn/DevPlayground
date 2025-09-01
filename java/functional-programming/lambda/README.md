@@ -135,3 +135,40 @@ Generalmente cuando encuentres:
 2. **Bucles que filtran, transforman o recolectan datos** → pueden migrarse a `stream().filter().map().collect()`.
 3. **Callbacks en Spring** → por ejemplo, en `JdbcTemplate`, `RestTemplate`, `@Async` o `@Scheduled`.
 4. **Operaciones que describen un “qué hacer” más que un “cómo hacerlo”**.
+
+### 📌 Reglas para detectar oportunidades
+
+1. **Bucles que filtran + transforman + recolectan** → `stream().filter().map().collect()`.
+2. **Búsqueda de un elemento que cumple condición** → `findFirst()`, `findAny()`.
+3. **Acumulación o reducción** → `reduce()`.
+4. **Ordenamientos o comparaciones con clases anónimas** → lambdas o method references.
+5. **Acciones sobre cada elemento** → `forEach`.
+
+<details>
+
+**<summary>🔹 Ejemplos prácticos </summary>**
+
+```java
+// 1. Suma con parámetros explícitos
+Operacion suma1 = (int a, int b) -> { return a + b; };
+
+// 2. Suma con tipos inferidos
+Operacion suma2 = (a, b) -> { return a + b; };
+
+// 3. Suma simplificada (sin return ni llaves)
+Operacion suma3 = (a, b) -> a + b;
+
+// 4. Un parámetro con paréntesis
+Function<String, String> mayus1 = (x) -> x.toUpperCase();
+
+// 5. Un parámetro sin paréntesis
+Function<String, String> mayus2 = x -> x.toUpperCase();
+
+// 6. Sin parámetros
+Supplier<String> saludo = () -> "Hola Mundo";
+
+// 7. Method reference
+Consumer<String> imprimir = System.out::println;
+```
+
+</details>
