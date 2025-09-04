@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Imperative
+ */
 public class Example1 {
 
     public void ExtractNamesWithL() {
-
         List<String> names = Arrays.asList("Juan", "Pedro", "Ana", "Lucía");
         List<String> result = new ArrayList<>();
 
@@ -17,7 +19,6 @@ public class Example1 {
             }
         }
         System.out.println(result);
-
     }
 
 }

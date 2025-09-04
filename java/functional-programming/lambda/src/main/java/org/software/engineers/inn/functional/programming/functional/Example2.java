@@ -9,7 +9,6 @@ import java.util.List;
 public class Example2 {
 
     public void filterAndTransform(String filterLetter) {
-
         List<String> names = Arrays.asList("Juan", "Pedro", "Ana", "Lucía");
 
         List<String> result = names.stream()
@@ -19,4 +18,6 @@ public class Example2 {
 
         System.out.println(result); // [LUCÍA]
     }
+
 }
+// ✅ Typical case: loops that filter and transform.

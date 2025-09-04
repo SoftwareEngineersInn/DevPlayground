@@ -4,11 +4,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/** Example1 migrated to functional using lambda **/
+/**
+ * Example1 migrated to functional using lambda
+ */
 public class Example1 {
 
     public void ExtractNamesWithL() {
-
         List<String> names = Arrays.asList("Juan", "Pedro", "Ana", "Lucía");
 
         List<String> result = names.stream()
@@ -17,7 +18,6 @@ public class Example1 {
                 .collect(Collectors.toList());
 
         System.out.println(result);
-
     }
 
 }
