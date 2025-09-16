@@ -64,10 +64,28 @@ userRepository.findById(1L)
     .ifPresent(user -> sendEmail(user));
 ```
 
-3. Transformaciones con map
+3. Transformaciones con `map`
 
 ```java
 String email = userRepository.findById(1L)
     .map(User::getEmail)        // solo si existe el usuario
     .orElse("no-email@domain.com");
 ```
+
+### 🔹 ¿Cómo detectar casos donde conviene Optional?
+👉 Señales claras:
+1. **Métodos que pueden devolver `null`** Ej: → buscar por id, obtener configuración opcional.
+2. **Cuando queremos evitar chequeos** `null` **explícitos**.
+3. **Cuando el contrato debe ser explícito** → Ej: un método que devuelve `Optional<User>` comunica que puede no haber usuario, más claro que devolver `null`.
+4. **Cuando queremos encadenar transformaciones seguras** (uso de `map`, `flatMap`, `filter`).
+
+⚠️ No abusar de Optional:
+- No usarlo en **atributos de entidades/POJOs** (puede causar problemas con frameworks como JPA o Jackson).
+- No usarlo en **parámetros de métodos públicos** (no fue diseñado para eso).
+- Usarlo sobre todo como **valor de retorno**.
+
+✅ **Resumen corto para entrevista:**
+
+`Optional` en Java es un contenedor que nace en Java 8 para evitar el uso de `null` y sus problemas (NPE). 
+Brinda expresividad, seguridad y legibilidad en el código. En Spring Boot se usa especialmente en repositorios (`findById`) 
+y servicios donde no siempre existe un valor. Se recomienda usarlo como valor de retorno, pero no en atributos ni parámetros.

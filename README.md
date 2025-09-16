@@ -35,9 +35,10 @@
 
 ## Java
 - API example with MongoDB and docker
-- collections
-- execption-handling
-- functional-programming
-- multi-threading
-- spring-framework
-- unit-testing
+- Collections
+- Execption-handling
+- Functional-programming
+- Multi-threading
+- Spring-framework
+- Unit-testing
+- Loging
