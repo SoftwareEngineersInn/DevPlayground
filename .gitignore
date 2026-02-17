@@ -26,3 +26,4 @@ replay_pid*
 # Global exclusions Intellij
 **/.idea/
 **/.mvn/
+.vscode/settings.json
