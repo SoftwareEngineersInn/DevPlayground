@@ -27,18 +27,18 @@
     - singleton
 - structural
     - adapter
-    - brigde
+    - bridge
     - composite
     - decorator
-    - fecade
+    - facade
     - proxy
 
 ## Java
 - API example with MongoDB and docker
 - Collections
-- Execption-handling
+- Exception-handling
 - Functional-programming
 - Multi-threading
 - Spring-framework
 - Unit-testing
-- Loging
+- Logging
