@@ -1,0 +1,282 @@
+MOVENA — MVP Specification Version 1.0
+
+1.  Executive Summary
+
+Movena is a mobility marketplace platform designed to connect e-commerce
+SMEs with individuals who already perform regular mobility events (daily
+trips such as commuting between cities).
+
+Instead of hiring traditional courier services, SMEs can publish
+delivery requests that may be fulfilled by individuals who are already
+traveling along compatible routes.
+
+Movena does not generate mobility. It captures existing mobility inertia
+and transforms unused cargo capacity into a logistics opportunity.
+
+This model enables: - Lower delivery costs for SMEs - Voluntary extra
+income for individuals - A decentralized logistics network
+
+The system functions as a mobility marketplace where logistics
+opportunities emerge naturally from daily movement patterns.
+
+2.  Core Philosophy
+
+Movena is built around the following principles:
+
+1.  Mobility is abundant.
+2.  People should be free to monetize their natural mobility without
+    obligation.
+3.  The platform should never pressure users to perform deliveries.
+4.  All participation must be voluntary.
+5.  Trust between SMEs and couriers must be transparent and observable.
+6.  The system should self-regulate through public delivery statistics.
+
+Movena is fundamentally different from traditional delivery platforms
+because it does not rely on full-time couriers or delivery quotas.
+
+3.  Target Market (MVP)
+
+Initial geographic scope:
+
+Greater Metropolitan Area (GAM), Costa Rica
+
+This includes cities such as: - San José - Cartago - Heredia - Alajuela
+
+These regions have significant daily commuting flows that Movena can
+leverage.
+
+4.  Actors
+
+The MVP includes three actors.
+
+4.1 SME (Business)
+
+An SME is an e-commerce seller who needs to deliver orders.
+
+Responsibilities: - Publish delivery requests - Declare the value of the
+order - Offer a delivery reward - Select a courier from interested
+candidates
+
+Benefits: - Reduced logistics cost - Access to a decentralized delivery
+network
+
+4.2 Courier (Deliverer)
+
+A courier is any individual who wants to monetize their natural
+mobility.
+
+Requirements: - Identity verification (DNI) - Profile photo - Acceptance
+of platform terms
+
+Couriers must declare mobility events indicating: - Origin -
+Destination - Time window - Acceptable deviation distance - Maximum load
+capacity (kg)
+
+Couriers are never forced to deliver.
+
+4.3 Movena Platform
+
+Movena orchestrates: - Matching between orders and mobility events -
+Escrow payment custody - Courier statistics - Basic risk management -
+Guarantee fund operations
+
+Movena acts as a market orchestrator, not as a delivery operator.
+
+5.  Core Concept: Mobility Events
+
+A mobility event represents a real trip that a courier intends to
+perform.
+
+Example:
+
+A courier travels daily from Cartago to San José for work.
+
+They may declare a mobility event such as:
+
+Origin: Cartago Destination: San José Departure Window: 6:30–7:30 AM
+Maximum deviation: 5 km
+
+The system will only show delivery opportunities that fit within this
+mobility constraint.
+
+This ensures that deliveries remain aligned with natural travel
+patterns.
+
+6.  Delivery Opportunity Model
+
+SMEs publish delivery opportunities called Orders.
+
+Each order includes: - Pickup location - Delivery location - Declared
+order value - Weight of the order - Reward offered to the courier
+
+Couriers whose mobility events are compatible may choose to apply.
+
+The SME can then select one courier.
+
+7.  Commitment Model
+
+The commitment model has two phases.
+
+Phase 1 — Soft Commitment
+
+Occurs when: - Courier applies for a delivery - SME selects the courier
+
+At this stage the courier is expected to present themselves for pickup
+within the same day.
+
+Failure to appear increases their cancellation statistics.
+
+Phase 2 — Hard Commitment
+
+Occurs when: - The courier physically picks up the order
+
+At this point: - The courier becomes fully responsible - Movena’s
+guarantee fund becomes active - Failure to deliver may result in
+permanent ban
+
+8.  Cancellation Rules
+
+Both parties may cancel, but the consequences differ.
+
+Courier cancellation: A courier may cancel freely. However: - The
+cancellation is recorded - The courier’s cancellation statistics
+increase - SMEs can see these statistics before selecting couriers
+
+No penalties beyond reputation impact.
+
+SME cancellation: SMEs may cancel an assignment before pickup.
+
+If the courier fails to appear: The SME can mark the order as available
+again.
+
+SMEs do not receive penalties in the MVP.
+
+9.  Transparency Model
+
+Movena relies heavily on transparent statistics.
+
+Each courier profile exposes: - Total deliveries completed - Total
+cancellations - Delivery success rate
+
+This transparency allows SMEs to decide whether to trust a courier.
+
+The system relies on market self-regulation rather than strict
+enforcement.
+
+10. Order Constraints (Risk Control)
+
+Maximum declared order value: 100 USD
+
+Orders above this value are not allowed.
+
+11. Guarantee Fund
+
+Movena operates a guarantee fund.
+
+Initial funding source: founder private capital.
+
+Purpose: Compensate SMEs if a courier fails to deliver an order after
+pickup.
+
+Coverage: Up to the declared order value (maximum $100).
+
+Long-term goal: self-sustaining guarantee fund.
+
+12. Unit Economic Model
+
+Movena uses a simple commission structure.
+
+SMEs publish a delivery reward (B) for the courier.
+
+Movena takes a 15% commission from the reward.
+
+Example:
+
+Courier reward: $10 SME pays: $11.50
+
+Distribution: Courier: $10 Movena: $1.50
+
+Part of Movena’s commission contributes to operating costs and the
+guarantee fund.
+
+13. Unit Economic Event (UEB)
+
+The Unit Economic Event of Movena is defined as:
+
+One successfully delivered order through the platform.
+
+A UEB occurs when:
+
+1.  SME publishes order
+
+2.  Courier is selected
+
+3.  Courier picks up order
+
+4.  Order is delivered
+
+5.  Funds are released
+
+14. Delivery Flow
+
+Typical lifecycle:
+
+1.  SME publishes order
+
+2.  Order becomes visible to compatible couriers
+
+3.  Couriers apply
+
+4.  SME selects courier
+
+5.  Courier arrives for pickup
+
+6.  Order is picked up
+
+7.  Order is delivered
+
+8.  Delivery confirmed
+
+9.  Payment released
+
+15. Identity Verification
+
+Couriers must provide: - National ID (DNI) - Profile photo - Personal
+information
+
+Users must accept platform terms.
+
+Severe misconduct may result in permanent ban.
+
+16. Initial Platform Strategy
+
+Launch strategy:
+
+1.  Recruit couriers through social media.
+2.  Recruit SMEs operating e-commerce businesses.
+
+Goal: seed both supply and demand sides of the marketplace.
+
+17. MVP Scope Limitations
+
+The MVP excludes:
+
+-   Multi-package deliveries
+-   Professional logistics operations
+-   Optimized routing algorithms
+-   Large item deliveries
+-   Deliveries above $100 value
+
+Focus: validate the mobility marketplace model.
+
+18. Success Criteria for MVP
+
+The MVP is successful if it demonstrates:
+
+-   Reliable courier participation
+-   SME adoption
+-   Successful deliveries
+-   Low incident rates
+-   Positive marketplace liquidity
+
+These results validate the mobility marketplace concept.

@@ -1,0 +1,13 @@
+| System Component   | Technology               |
+| ------------------ | ------------------------ |
+| Backend API        | Kotlin + Spring Boot     |
+| Database           | PostgreSQL               |
+| Mobile Application | Flutter                  |
+| SME Web Dashboard  | React + TypeScript       |
+| Authentication     | Spring Security + JWT    |
+| Payments           | Stripe                   |
+| Notifications      | Firebase Cloud Messaging |
+| Infrastructure     | AWS / DigitalOcean       |
+| Containerization   | Docker                   |
+| Monitoring         | Prometheus + Grafana     |
+| CI/CD              | Azure DevOps             |
