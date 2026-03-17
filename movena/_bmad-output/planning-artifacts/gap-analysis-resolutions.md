@@ -142,10 +142,20 @@ IC = (Orders Delivered / (Orders Delivered + Orders Cancelled)) × 100
 
 ---
 
+## Gap #1 — User Stories / Functional Requirements
+
+### Decision
+- **Status:** Resolved — full user story set produced
+- **Output:** `_bmad-output/planning-artifacts/user-stories.md`
+- **Scope:** 34 user stories across 10 epics covering all 3 actors (Courier, SME, Movena Ops)
+- **Epics:** Courier Onboarding, Courier Mobility Events, SME Onboarding, Order Management, Order Discovery & Application, Delivery Execution, Payment & Escrow, Trust & IC System, Notifications (FCM), Admin/Operations Panel
+
+---
+
 ## Gaps Remaining
 
 ### 🚨 Critical
-1. **User Stories / Functional Requirements** — largest dev blocker, not yet started
+*(None — all critical gaps resolved)*
 
 ### ⚠️ Important
 7. Non-functional requirements (security, performance, privacy)
