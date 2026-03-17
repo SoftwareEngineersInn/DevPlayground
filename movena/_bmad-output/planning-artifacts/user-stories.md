@@ -1,8 +1,8 @@
-# Movena MVP — User Stories
+# Movena MVP — User Stories & Non-Functional Requirements
 
 > **Document type:** Business Analysis — Functional Requirements / User Stories
 > **Project:** Movena (Mobility Marketplace — Costa Rica, GAM Region)
-> **Status:** Living document — v1.0 baseline
+> **Status:** Living document — v1.1 (all MVP gaps resolved)
 > **Last updated:** 2026-03-17
 > **Author:** Mary (BA Agent) — reviewed with Lucian
 
@@ -15,6 +15,32 @@
 | **Courier** | Flutter mobile app (iOS + Android) |
 | **SME** | React web dashboard |
 | **Movena Ops** | Admin panel (managed internally by Lucian) |
+
+---
+
+## Non-Functional Requirements
+
+### NFR-1 — Scale & Performance
+- **Target launch:** 100–200 couriers, 30–50 SMEs (GAM seed launch)
+- **Infrastructure headroom:** Stack must support up to 2,000 couriers / 500 SMEs on minimal infrastructure without architectural changes
+- **Geo-matching:** Order compatibility queries must use indexed geometry columns (PostGIS) from day one — no full-table scans
+- **Response time:** No hard SLA defined for MVP; standard web/mobile responsiveness expected
+
+### NFR-2 — Authentication & Security
+- **Auth provider:** Firebase Auth (unified with FCM — same SDK)
+- **Session management:** JWT with refresh tokens, managed by Firebase Auth
+- **Transport:** HTTPS enforced on all endpoints — no plain HTTP
+- **Payment security:** PCI compliance delegated to Stripe — no raw card data stored or transmitted through Movena servers
+- **Rate limiting:** API rate limiting applied to all public endpoints to prevent abuse
+- **Input validation:** All user-submitted data validated and sanitised server-side
+- **Document storage:** Identity documents (cédula, hoja de criminalidad) stored in private, access-controlled cloud storage — not publicly accessible
+
+### NFR-3 — Data Privacy (Ley 8968 — Costa Rica)
+- **Explicit consent:** Users must explicitly consent to data collection at registration
+- **Data minimisation:** Only data strictly necessary for platform operation collected and stored
+- **Right to deletion:** Users can request account and personal data deletion
+- **Contact privacy:** The platform never exposes user phone numbers or personal contact details to counterparties — in-app chat is the coordination channel
+- **Document access:** Identity documents accessible only to Movena Ops reviewers — not to other users
 
 ---
 
@@ -32,6 +58,7 @@
 | E8 | Trust & IC System |
 | E9 | Notifications (FCM) |
 | E10 | Admin / Operations Panel |
+| E11 | In-App Communication |
 
 ---
 
@@ -137,6 +164,23 @@
 
 ---
 
+### US-3.4 — SME Onboarding Wizard
+> As a newly registered SME, I want to be guided through a step-by-step onboarding wizard on my first login so that I understand how to use the platform before publishing my first order.
+
+**Acceptance Criteria:**
+- Wizard triggered automatically on first login only
+- Steps:
+  1. Welcome & platform overview (what Movena is)
+  2. How orders work (publish → couriers apply → select → delivery)
+  3. How courier matching works (route-based, deviation radii)
+  4. How payment & escrow works (upfront capture, 24h confirmation window)
+  5. How to publish your first order (guided walkthrough of the publish form)
+- Each step is skippable individually
+- Entire wizard can be dismissed and restarted from the dashboard help section
+- Wizard completion tracked — not shown again on subsequent logins
+
+---
+
 ## EPIC 4 — Order Management (SME)
 
 ### US-4.1 — Publish a Delivery Order
@@ -192,7 +236,7 @@
 - Confirm button available once courier marks order as "Delivered"
 - 24h window countdown displayed to SME from the moment courier marks delivered
 - On SME confirmation: escrow released to courier immediately via Stripe
-- If no SME action within 24h: escrow auto-released (system-triggered)
+- If no SME action within 24h and no open dispute: escrow auto-released (system-triggered)
 - Optional: SME can view delivery photo proof if courier uploaded one
 
 ---
@@ -240,7 +284,7 @@
   - Picked Up → "Mark as Delivered"
   - Delivered → "Awaiting SME Confirmation" (with countdown)
 - No live GPS tracking — status-based updates only
-- SME contact details (name, phone) visible after mutual acceptance to coordinate pickup
+- In-app chat with SME accessible from the active order screen for pickup coordination
 
 ---
 
@@ -262,7 +306,7 @@
 **Acceptance Criteria:**
 - "Mark as Delivered" button in Flutter app
 - Order status → "Delivered"
-- 24h auto-release timer starts
+- 24h auto-release timer starts (paused if a dispute is raised before expiry)
 - SME receives FCM push notification to confirm delivery
 
 ---
@@ -306,7 +350,8 @@
 
 **Acceptance Criteria:**
 - Timer starts when courier marks "Delivered"
-- At T+24h with no SME action: Stripe transfer executed to courier
+- At T+24h with no SME action and no open dispute: Stripe transfer executed to courier
+- If a dispute is raised before T+24h: auto-release timer is paused — escrow frozen until ops resolves the dispute
 - Both parties notified of auto-release via FCM
 
 ---
@@ -326,10 +371,21 @@
 **Acceptance Criteria:**
 - Claim option available only after Hard Commitment (courier confirmed pickup) AND a reasonable time has passed without a "Delivered" status
 - SME provides: description of incident, any supporting evidence (messages, photos)
-- Claim enters Movena ops review queue
+- Claim enters Movena ops review queue; escrow frozen for the order's duration
 - On approval: SME compensated up to the declared order value (capped at CRC equivalent of $100 USD) from the guarantee fund
 - Both parties notified of claim outcome via FCM
 - Courier account flagged; repeated offences may result in permanent ban (per platform terms)
+
+---
+
+### US-7.5 — Escrow Freeze on Open Dispute
+> As the system, when a dispute is raised on an order with pending escrow, I want to freeze the escrow so that funds are not auto-released until Movena ops resolves the dispute.
+
+**Acceptance Criteria:**
+- Any open dispute (cancellation dispute or guarantee fund claim) on an order immediately pauses the 24h auto-release timer
+- Escrow remains frozen for the full duration of the dispute review
+- On dispute resolution by ops: escrow released per ops decision (to courier, to SME, or refunded)
+- Both parties notified of escrow outcome via FCM
 
 ---
 
@@ -381,7 +437,10 @@
 | Courier marked delivered | SME | FCM web push |
 | 24h confirmation window reminder (T+20h) | SME | FCM web push |
 | Escrow released (by SME or auto) | Courier + SME | FCM both |
+| Escrow frozen — dispute opened | Courier + SME | FCM both |
+| Dispute resolved by ops | Courier + SME | FCM both |
 | Order cancelled by counterpart | Courier / SME | FCM both |
+| New in-app chat message | Courier / SME | FCM both |
 | Verification approved / rejected | Courier / SME | FCM both |
 | IC warning triggered | Courier / SME | FCM both |
 | IC badge suspended | Courier / SME | FCM both |
@@ -421,8 +480,9 @@
 
 **Acceptance Criteria:**
 - Queue of flagged disputed cancellations
-- View: order detail, cancellation reason submitted by user, delivery photo if available
+- View: order detail, cancellation reason submitted by user, in-app chat history, delivery photo if available
 - Decision: Waive IC impact OR Uphold IC impact
+- Escrow released per decision if frozen
 - Both parties notified of decision via FCM
 
 ---
@@ -431,10 +491,36 @@
 > As a Movena Ops member, I want to review SME guarantee fund claims so that I can approve or reject compensation from the fund.
 
 **Acceptance Criteria:**
-- Queue of open claims with order detail and SME-provided evidence
-- Approve → compensation issued to SME (up to declared order value, max CRC equivalent of $100); courier account flagged
-- Reject → SME notified with reason
+- Queue of open claims with order detail, SME-provided evidence, in-app chat history
+- Approve → compensation issued to SME (up to declared order value, max CRC equivalent of $100); courier account flagged; escrow released
+- Reject → SME notified with reason; escrow released to courier
 - Both parties notified of outcome via FCM
+
+---
+
+## EPIC 11 — In-App Communication
+
+### US-11.1 — Send Messages in Order Chat
+> As a Courier or SME with a mutually accepted order, I want to send messages through an in-app chat so that I can coordinate without the platform exposing my personal contact information.
+
+**Acceptance Criteria:**
+- Chat available from the moment of mutual acceptance (courier selected by SME)
+- Messages delivered in real-time (or near real-time)
+- The platform never displays or shares phone numbers with counterparties
+- Users may voluntarily share personal contact information through chat at their own discretion
+- FCM push notification sent to recipient on each new message
+- Chat accessible from the active order screen on both Flutter app and React dashboard
+
+---
+
+### US-11.2 — View Chat History
+> As a Courier, SME, or Movena Ops member, I want to view the full message history for an order so that it can be used for coordination and dispute evidence.
+
+**Acceptance Criteria:**
+- Full chat history accessible within the order detail screen for both parties
+- History retained after order completion (not deleted on close)
+- History accessible to Movena Ops reviewers when reviewing disputes — read-only
+- No message editing or deletion by users (immutable record for dispute integrity)
 
 ---
 
@@ -444,12 +530,13 @@
 |------|---------|
 | E1 — Courier Onboarding | 4 |
 | E2 — Courier Mobility Events | 2 |
-| E3 — SME Onboarding | 3 |
+| E3 — SME Onboarding | 4 |
 | E4 — Order Management (SME) | 5 |
 | E5 — Order Discovery & Application | 4 |
 | E6 — Delivery Execution | 4 |
-| E7 — Payment & Escrow | 4 |
+| E7 — Payment & Escrow | 5 |
 | E8 — Trust & IC System | 3 |
 | E9 — Notifications | 1 (consolidated event table) |
 | E10 — Admin / Operations | 4 |
-| **Total** | **34 stories** |
+| E11 — In-App Communication | 2 |
+| **Total** | **38 stories** |

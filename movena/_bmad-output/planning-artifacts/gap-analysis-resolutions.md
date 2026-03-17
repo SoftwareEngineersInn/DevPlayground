@@ -152,22 +152,76 @@ IC = (Orders Delivered / (Orders Delivered + Orders Cancelled)) × 100
 
 ---
 
+## Gap #7 — Non-Functional Requirements
+
+### Decision
+
+**Scale & Performance**
+- MVP target: 100–200 couriers, 30–50 SMEs at launch (GAM seed)
+- Infrastructure headroom: stack must support up to 2,000 couriers / 500 SMEs without architectural changes
+- Geo-matching queries must use indexed geometry columns (PostGIS) from day one
+- No hard response time SLA for MVP
+
+**Authentication & Security**
+- Auth provider: Firebase Auth (unified with FCM)
+- Session management: JWT with refresh tokens via Firebase Auth
+- Transport: HTTPS enforced on all endpoints
+- PCI compliance: delegated entirely to Stripe — no raw card data on Movena servers
+- API rate limiting on all public endpoints
+- Server-side input validation and sanitisation on all user-submitted data
+- Identity documents stored in private, access-controlled cloud storage
+
+**Data Privacy — Ley 8968 (Costa Rica)**
+- Explicit user consent required at registration
+- Data minimisation: only data necessary for platform operation collected
+- Right to deletion: users can request full account and personal data removal
+- Contact privacy: platform never exposes phone numbers to counterparties — in-app chat is the coordination layer
+- Identity documents accessible to Movena Ops only
+
+---
+
+## Gap #9 — In-App Communication
+
+### Decision
+- **Channel:** In-app chat (no phone number sharing by the platform)
+- **Availability:** Chat opens at mutual acceptance; accessible from the active order screen on both Flutter app and React dashboard
+- **Privacy:** Platform never shares personal contact info — users may share voluntarily through chat
+- **History:** Message history retained after order completion (immutable record for dispute integrity)
+- **Ops access:** Chat history accessible to Movena Ops reviewers when reviewing disputes (read-only)
+
+---
+
+## Gap #11 — Dispute Resolution
+
+### Decision
+- **MVP scope:** Cancellation disputes and guarantee fund claims only — damage, wrong item, and other dispute types deferred post-MVP
+- **Escrow during dispute:** If a dispute is raised before the 24h auto-release triggers, escrow is frozen immediately and remains frozen until Movena ops resolves the dispute
+- **Resolution:** Ops team decides escrow destination (to courier, to SME, or refund) and IC impact (waive or uphold)
+- **Both parties notified** of all dispute outcomes via FCM
+
+---
+
+## Gap #12 — SME Onboarding Flow
+
+### Decision
+- **Onboarding UX:** Guided step-by-step wizard triggered on first login only
+- **Wizard steps:** (1) Welcome & overview, (2) How orders work, (3) Courier matching, (4) Payment & escrow, (5) Publishing first order
+- **Skippable:** Each step individually skippable; full wizard restartable from dashboard help section
+- **Vetting:** Document-based only (cédula review by Movena ops) — no onboarding call required
+
+---
+
 ## Gaps Remaining
 
 ### 🚨 Critical
 *(None — all critical gaps resolved)*
 
 ### ⚠️ Important
-7. Non-functional requirements (security, performance, privacy)
-8. Notifications — full event specification (what triggers what, to whom, with what message)
-9. In-app communication between courier and SME
-10. Admin / operations panel definition
-11. Dispute resolution process
-12. SME onboarding / vetting flow detail
+*(None — all important gaps resolved)*
 
 ### 📝 Minor / Intentional?
-13. Rating system — only IC stats tracked (intentional?)
-14. Real-time order tracking — not yet addressed
+13. Rating system — only IC stats tracked (intentional per spec — no change needed)
+14. Real-time order tracking — decided: status updates only for MVP (no live GPS)
 
 ### 📝 Spec Cleanup
 - Convert all USD amounts in the spec to CRC equivalents
