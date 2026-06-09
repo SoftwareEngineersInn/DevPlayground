@@ -29,3 +29,5 @@ replay_pid*
 .vscode/settings.json
 /movena/_bmad
 /movena/.claude
+/mlops/.venv
+/mlops/.vscode
