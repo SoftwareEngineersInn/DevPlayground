@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "ai-harness-setup": {
+      "source": "cisco-genai/awesome-cisco",
+      "sourceType": "github",
+      "skillPath": "skills/ai-harness-setup/SKILL.md",
+      "computedHash": "e9142aec741e9a75d03efdf86828e6efa9398b86b4867384bcded41ec6df1644"
+    },
+    "ai-native-assessment": {
+      "source": "cisco-genai/awesome-cisco",
+      "sourceType": "github",
+      "skillPath": "skills/ai-native-assessment/SKILL.md",
+      "computedHash": "a04dddb1124a7c17e5a58dfc61d87268f49b29d2698829678bd80daa05714472"
+    }
+  }
+}
